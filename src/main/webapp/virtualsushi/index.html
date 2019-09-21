@@ -23,10 +23,12 @@
   <![endif]-->
 
   <header>
-	<ul>
-	  <li>My Account</li>
+	<ul class="topnav">
+	  <li><a href="#" id="navHome">Home</a></li>
+	  <li><a href="#" id="navMyAccount">My Account</a></li>
+	  <li><span id='extole_zone_global_header'></span></li>
 	</ul>
-	<h1>Virtual Sushi</h1>
+	<h1 class="headerLogo">Virtual Sushi</h1>
   </header>
   
   <div class="productList">
@@ -37,10 +39,14 @@
 	  <div class="productTitle">Virtual Spicy Tuna</div>
     </div>    
   </div>
-  
+  <span id='extole_zone_overlay'></span>
   <footer>
-	  <div class="copyright">Copyright 2019&copy;</div>
-  </footer>  
+	  <ul>
+	    <li><span class="copyright">Copyright 2019&copy;</span></li>
+	    <li><span id='extole_zone_global_footer'></span></li>
+	  </ul>
+  </footer>
+  
   
   
   <script src="js/vendor/modernizr-3.7.1.min.js"></script>
@@ -48,5 +54,24 @@
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+  
+  <script src='https://jordan-demo.extole.io/core.js' async></script>
+  <script type="text/javascript">
+    (function(c,b,f,k,a){c[b]=c[b]||{};for(c[b].q=c[b].q||[];a<k.length;)f(k[a++],c[b])})(window,"extole",function (c,b){b[c]=b[c]||function (){b.q.push([c,arguments])}},["createZone"],0);
+    
+    extole.createZone({
+        name: "global_header",
+        element_id: 'extole_zone_global_header'
+    });
+    extole.createZone({
+        name: "global_footer",
+        element_id: 'extole_zone_global_footer'
+    });
+    extole.createZone({
+        name: "overlay",
+        element_id: 'extole_zone_overlay'
+    });
+  </script>	  
+  
 </body>
 </html>
