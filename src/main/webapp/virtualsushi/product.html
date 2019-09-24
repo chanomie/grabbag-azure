@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Virtual Sushi</title>
+  <title>Virtual Sushi - Virtual California Roll</title>
   <meta name="description" content="Virtual Sushi is Delicious">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,6 +15,13 @@
   <link rel="stylesheet" href="css/main.css">
 
   <meta name="theme-color" content="#fafafa">
+
+  <!-- OpenGraph Tags, also used for Product Sharing -->
+  <meta property="og:url"                content="https://grabbagazure.azurewebsites.net/virtualsushi/product.html?sku=vcr" />
+  <meta property="og:title"              content="Virtual Sushi - Virtual California Roll" />
+  <meta property="og:description"        content="Delicious crab and avocado rolled together." />
+  <meta property="og:image"              content="https://grabbagazure.azurewebsites.net/virtualsushi/img/virtual-california-roll.png" />
+
 
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>  
@@ -32,22 +39,14 @@
 	  <li><span id='extole_zone_global_header'></span></li>
 	</ul>
 	<h1 class="headerLogo"><img src="img/virtualsushi-logo.png" alt="Virtual Sushi" width="500" height="76" /></h1>
-  </header>
-  
-  <div id="productList" class="productList">
-    <div class="productItem">
-      <a href="product.html?sku=vcr">
+  </header>  
+    <div class="product">
         <h2 class="productTitle">Virtual California Roll</h2>
 	    <img class="productImage" src="img/virtual-california-roll.png" />
-	  </a>
+	    <form action="#">
+	    	<button type="button">Add to Cart</button>
+	    </form>
     </div>
-    <div class="productItem">
-      <a href="product.html?sku=vst">
-  	    <h2 class="productTitle">Virtual Spicy Tuna</h2>
-    	<img class="productImage" src="img/virtual-spicy-tuna.png" />
-	  </a>
-    </div>    
-  </div>
   <span id='extole_zone_overlay'></span>
   <footer>
 	  <ul>
