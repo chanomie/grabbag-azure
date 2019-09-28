@@ -22,6 +22,11 @@
   <meta property="og:description"        content="Delicious crab and avocado rolled together." />
   <meta property="og:image"              content="https://grabbagazure.azurewebsites.net/virtualsushi/img/virtual-california-roll.png" />
 
+  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>  
@@ -36,17 +41,19 @@
 	<ul class="topnav">
 	  <li><a href="/virtualsushi" id="navHome">Home</a></li>
 	  <li><a href="#" id="navMyAccount">My Account</a></li>
+	  <li><a href="#" id="navCheckout">Checkout</a></li>
 	  <li><span id='extole_zone_global_header'></span></li>
 	</ul>
 	<h1 class="headerLogo"><img src="img/virtualsushi-logo.png" alt="Virtual Sushi" width="500" height="76" /></h1>
   </header>  
-    <div class="product">
-        <h2 class="productTitle">Virtual California Roll</h2>
-	    <img class="productImage" src="img/virtual-california-roll.png" />
-	    <form action="#">
-	    	<button type="button">Add to Cart</button>
-	    </form>
+    <div id="product" class="product">
     </div>
+    <div id="productActions">
+	    <span id='extole_zone_product'></span>
+	    <form action="#">
+	    	<button id="addToCartButton" type="button">Add to Cart</button>
+	    </form>
+    </div>    	
   <span id='extole_zone_overlay'></span>
   <footer>
 	  <ul>
@@ -55,12 +62,18 @@
 	  </ul>
   </footer>
   
+  <div id="cartModal" class="modal fade modal-sm" role="dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+          <span>Added to cart</span>
+        </div>
+      </div>
+  </div>
   
-  
-  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
-  
+    
   <script src='https://jordan-demo.extole.io/core.js' async></script>
   <script type="text/javascript">
     (function(c,b,f,k,a){c[b]=c[b]||{};for(c[b].q=c[b].q||[];a<k.length;)f(k[a++],c[b])})(window,"extole",function (c,b){b[c]=b[c]||function (){b.q.push([c,arguments])}},["createZone"],0);
@@ -76,6 +89,10 @@
     extole.createZone({
         name: "overlay",
         element_id: 'extole_zone_overlay'
+    });
+    extole.createZone({
+        name: "product",
+        element_id: 'extole_zone_product'
     });
   </script>	  
   
