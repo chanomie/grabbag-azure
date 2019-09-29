@@ -35,16 +35,19 @@
 	<ul class="topnav">
 	  <li><a href="/virtualsushi" id="navHome">Home</a></li>
 	  <li><a href="#" id="navMyAccount">My Account</a></li>
-	  <li><a href="#" id="navCheckout">Checkout</a></li>
+	  <li><a href="/virtualsushi/checkout.html" id="navCheckout">Checkout<span id="cartCount"></span></a></li>
 	  <li><span id='extole_zone_global_header'></span></li>
 	</ul>
 	<h1 class="headerLogo"><img src="img/virtualsushi-logo.png" alt="Virtual Sushi" width="500" height="76" /></h1>
   </header>
 
-  <!-- Product List is populated by JS -->  
-  <div id="cart" class="cart">
-  </div>
-
+  <!-- Cart is populated by JS -->  
+  <div id="cart" class="cart" style="text-align: center;"></div>  
+  <form action="#" class="checkoutForm">
+    <button id="clearCartButton" type="button">Clear Cart</button>
+    <button id="checkoutButton" disabled="disabled" type="button">Checkout</button>
+  </form>
+  
   <footer>
 	  <ul>
 	    <li><span class="copyright">Copyright 2019&copy;</span></li>
@@ -53,26 +56,5 @@
   </footer>
     
   <script src='https://jordan-demo.extole.io/core.js' async></script>
-  <script type="text/javascript">
-    (function(c,b,f,k,a){c[b]=c[b]||{};for(c[b].q=c[b].q||[];a<k.length;)f(k[a++],c[b])})(window,"extole",function (c,b){b[c]=b[c]||function (){b.q.push([c,arguments])}},["createZone"],0);
-    
-    extole.createZone({
-        name: "global_header",
-        element_id: 'extole_zone_global_header'
-    });
-    extole.createZone({
-        name: "global_footer",
-        element_id: 'extole_zone_global_footer'
-    });
-    extole.createZone({
-        name: "overlay",
-        element_id: 'extole_zone_overlay'
-    });
-    extole.createZone({
-        name: "product",
-        element_id: 'extole_zone_product'
-    });    
-  </script>	  
-  
 </body>
 </html>

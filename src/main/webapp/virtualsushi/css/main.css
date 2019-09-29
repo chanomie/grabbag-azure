@@ -143,6 +143,28 @@ ul.topnav li a {
 	
 }
 
+.cart {
+	text-align: center;
+}
+
+.cartProduct {
+  margin-bottom: 20px;	
+}
+
+.cartProductImage {
+  height: 50px;
+  width: 50px;
+  display: inline-block;	
+}
+
+.cartProductTitle {
+  display: inline-block;		
+}
+
+.checkoutForm {
+	text-align: center;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
