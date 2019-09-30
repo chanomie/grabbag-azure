@@ -123,12 +123,39 @@ function setupCartPage() {
 
    	$("#checkoutButton").click(function() {
 	   	// If not logged in, then login
+	   	
 	   	if(!getLoginEmail()) {
 	   	  $("#modalLoginForm").modal();
 	   	} else {
-		  // Do the real checkout
+		  checkout();
 	   	}
    	})
+}
+
+function checkout() {
+	var cartMap = getCartMap();
+	if(cartMap.items == 0) {
+		alert("Cart is empty.");
+		return;
+	}
+	
+    (function(c,e,k,l,a){c[e]=c[e]||{};for(c[e].q=c[e].q||[];a<l.length;)k(l[a++],c[e])})(window,"extole",function(c,e){e[c]=e[c]||function(){e.q.push([c,arguments])}},["createZone"],0);
+
+      extole.createZone({
+        name: 'conversion',
+        data: {
+          "email": getLoginEmail(),
+          "partner_conversion_id": (new Date()).getTime(),
+          "cart_value": cartMap.price.toFixed(2)
+        }
+      });
+	
+	clearCart();
+      extole.createZone({
+        name: 'confirmation'
+      });
+	
+	
 }
 
 function setupLoginModal() {
@@ -214,9 +241,18 @@ function loginUser(email) {
 	var loginEmail = sessionStorage.getItem("loginEmail");
 	
 	if(loginEmail && loginEmail !== "" && loginEmail !== email) {
-		logoutUser();
+	  logoutUser();
 	} else {
-		sessionStorage.setItem("loginEmail", email);
+	  sessionStorage.setItem("loginEmail", email);
+      (function(c,e,k,l,a){c[e]=c[e]||{};for(c[e].q=c[e].q||[];a<l.length;)k(l[a++],c[e])})(window,"extole",function(c,e){e[c]=e[c]||function(){e.q.push([c,arguments])}},["createZone"],0);
+
+      extole.createZone({
+       name: 'registration',
+       data: {
+         "email": email
+       }
+     });
+  
 	}
 	
 	// Trigger an identify event
@@ -224,6 +260,7 @@ function loginUser(email) {
 
 function logoutUser() {
 	sessionStorage.removeItem("loginEmail");
+	// Trigger Extole Logout
 }
 
 function getLoginEmail() {
