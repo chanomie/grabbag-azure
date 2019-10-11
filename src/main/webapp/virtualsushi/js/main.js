@@ -54,25 +54,35 @@ function setupProductList() {
 function setupExtole() {
     (function(c,b,f,k,a){c[b]=c[b]||{};for(c[b].q=c[b].q||[];a<k.length;)f(k[a++],c[b])})(window,"extole",function (c,b){b[c]=b[c]||function (){b.q.push([c,arguments])}},["createZone"],0);
     
+    var extoleData = {};
+    if(getLoginEmail()) {
+	    extoleData.email = getLoginEmail();
+    }
+    
     extole.createZone({
         name: "global_header",
-        element_id: 'extole_zone_global_header'
+        element_id: 'extole_zone_global_header',
+        data: extoleData
     });
     extole.createZone({
         name: "global_footer",
-        element_id: 'extole_zone_global_footer'
+        element_id: 'extole_zone_global_footer',
+        data: extoleData
     });
     extole.createZone({
         name: "overlay",
-        element_id: 'extole_zone_overlay'
+        element_id: 'extole_zone_overlay',
+        data: extoleData
     });
     extole.createZone({
         name: "product",
-        element_id: 'extole_zone_product'
+        element_id: 'extole_zone_product',
+        data: extoleData
     });
     extole.createZone({
         name: "product_page",
-        element_id: 'extole_zone_product_page'
+        element_id: 'extole_zone_product_page',
+        data: extoleData
     });
     
     
