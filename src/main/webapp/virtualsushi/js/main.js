@@ -69,7 +69,13 @@ function setupExtole() {
     extole.createZone({
         name: "product",
         element_id: 'extole_zone_product'
-    });	
+    });
+    extole.createZone({
+        name: "product_page",
+        element_id: 'extole_zone_product_page'
+    });
+    
+    
 }
 
 function setupProductPage() {
