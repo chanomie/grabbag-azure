@@ -102,7 +102,12 @@ header {
 	text-align: center;
 }
 
-ul.topnav {
+footer {
+  padding-top: 25px;
+  text-align: center;
+}
+
+ul.topnav, ul.bottomnav {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -114,12 +119,33 @@ ul.topnav li {
 	display: inline-block;
 }
 
+ul.bottomnav li {
+	display: inline-block;
+}
+
 ul.topnav li a {
   display: block;
   color: black;
   text-align: center;
   padding: 16px;
   text-decoration: none;
+}
+
+ul.bottomnav li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+
+.product {
+	text-align: center;	
+}
+
+.productActions {
+	text-align: center;
 }
 
 .productList {
