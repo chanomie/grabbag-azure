@@ -187,6 +187,22 @@ ul.bottomnav li a {
   display: inline-block;		
 }
 
+.couponCode {
+    padding-bottom: 25px;	
+}
+
+.couponValid {
+	border: solid 1px green;
+}
+
+.couponInvalid {
+	border: solid 1px red;
+}
+
+.couponCodeField {
+	text-align: center;
+}
+
 .checkoutForm {
 	text-align: center;
 }

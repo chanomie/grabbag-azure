@@ -106,7 +106,7 @@ function setupProductPage() {
    	$("#addToCartButton").click(function() {
    		addToCart(productSku);
    		$("#cartModal").modal();
-   	})
+   	})   	
 }
 
 function setupCartPage() {
@@ -117,7 +117,7 @@ function setupCartPage() {
       if (cartMap.products.hasOwnProperty(productSku)) {           
         // console.log(productSku, cartMap.products[productSku]);
         
-        $("#cart").append(
+        $("#cart").empty().append(
 	      $("<div>").addClass("cartProduct").append(
 		    $("<img>").addClass("cartProductImage").attr("src","img/" + products[productSku].img)
 	      ).append(
@@ -128,9 +128,25 @@ function setupCartPage() {
 		    )
 	      )
         );
-
       }
     }
+    
+    $( "#coupon_code" ).blur(function() {
+	  var value = $("#coupon_code").val();
+	  if(value && value !== "") {
+		  if(coupon_codes.includes(value)) {
+		    $("#coupon_code").addClass("couponValid").removeClass("couponInvalid");
+		    sessionStorage.setItem("coupon", value);
+		  } else {
+			$("#coupon_code").removeClass("couponValid").addClass("couponInvalid");  
+		    sessionStorage.removeItem("coupon");
+		  }
+	  } else {
+		  $("#coupon_code").removeClass("couponValid").removeClass("couponInvalid");
+          sessionStorage.removeItem("coupon");
+	  }
+	  setupCartPage();
+    });   	    
   }
   
    	$("#clearCartButton").click(function() {
@@ -151,7 +167,6 @@ function setupCartPage() {
 function checkout() {
 	var cartMap = getCartMap();
 	if(cartMap.items == 0) {
-		alert("Cart is empty.");
 		return;
 	}
 	
@@ -162,6 +177,7 @@ function checkout() {
         data: {
           "email": getLoginEmail(),
           "partner_conversion_id": (new Date()).getTime(),
+          "coupon_code": $("#coupon_code").val(),
           "cart_value": cartMap.price.toFixed(2)
         }
       });
@@ -235,6 +251,10 @@ function getCartMap() {
 		  }
 		}
     });
+    
+    if(sessionStorage.getItem("coupon")) {
+	    cartMap.price = Math.max(0, cartMap.price-5);
+    }
     
     if(document.getElementById("cartCount")) {
 	    $("#cartCount").text(" (" + cartMap.items + ")");
